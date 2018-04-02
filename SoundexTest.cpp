@@ -2,7 +2,6 @@
 #include "Soundex.h"
 #include "gmock/gmock.h"
 
-using namespace ::std;
 
 class SoundexEncoding: public testing::Test{
 public:
@@ -19,3 +18,6 @@ TEST_F(SoundexEncoding, RetainsZerosLetterOfOneLetterWord){
 	ASSERT_THAT(soundex.encode("I"), testing::Eq("I000"));
 }
 
+TEST_F(SoundexEncoding, ReplacesConsonantsWithAppropriateDigits){
+	ASSERT_THAT(soundex.encode("Ab"), testing::Eq("A100"));
+}
