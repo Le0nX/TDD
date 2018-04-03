@@ -1,6 +1,8 @@
 #ifndef Soundex_h
 #define Soundex_h
 
+#include <stdint.h>
+
 static constexpr uint8_t MAX_CODE_LENGTH{4};
 
 class Soundex{
