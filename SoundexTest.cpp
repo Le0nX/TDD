@@ -8,16 +8,10 @@ public:
 	Soundex soundex;
 };
 
-TEST_F(SoundexEncoding, RetainsSoleLetterOfOneLetterWord){
-
-	ASSERT_THAT(soundex.encode("A"), testing::Eq("A000"));
-}
-
-TEST_F(SoundexEncoding, RetainsZerosLetterOfOneLetterWord){
-
-	ASSERT_THAT(soundex.encode("I"), testing::Eq("I000"));
-}
-
 TEST_F(SoundexEncoding, ReplacesConsonantsWithAppropriateDigits){
-	ASSERT_THAT(soundex.encode("Ab"), testing::Eq("A100"));
+	ASSERT_THAT(soundex.encode("Ax"), testing::Eq("A200"));
+}
+
+TEST_F(SoundexEncoding, IgnoresNonAlphabetics) {
+	ASSERT_THAT(soundex.encode("A#"), testing::Eq("A000"));
 }
